@@ -31,7 +31,7 @@ func _integrate_forces(state):
 		get_damage(p * 0.05)
 
 func _on_body_entered(body):
-	get_damage(self.processed_velocity.length() * 0.05)
+	get_damage(self.processed_velocity.length() * 0.005)
 	
 func get_damage(damage):
 	damage = round(damage)

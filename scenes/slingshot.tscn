@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7kwldoae7ux7"]
+
+[ext_resource type="Texture2D" uid="uid://wyyv03sxvti3" path="res://assets/gameplay/slingshot.png" id="1_5l4ma"]
+[ext_resource type="Texture2D" uid="uid://bkmj8jssoncuw" path="res://assets/gameplay/slingshot_2.png" id="2_yn4nk"]
+
+[node name="Slingshot" type="Node2D"]
+
+[node name="SlingshotBack" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-8, -7)
+texture = ExtResource("1_5l4ma")
+
+[node name="SlingshotFront" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-21, -56)
+texture = ExtResource("2_yn4nk")
+
+[node name="LaunchPoint" type="Marker2D" parent="."]
+position = Vector2(0, -82)
