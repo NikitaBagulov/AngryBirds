@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://41q6otr8a4f0"]
+
+[ext_resource type="PackedScene" uid="uid://bgalq6ne7f35n" path="res://scenes/damageable.tscn" id="1_ih15q"]
+[ext_resource type="Texture2D" uid="uid://ep3sf36tgdci" path="res://assets/gameplay/blocks.png" id="2_xi6ts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huuqw"]
+size = Vector2(78, 77)
+
+[node name="Block" instance=ExtResource("1_ih15q")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1, 0)
+texture = ExtResource("2_xi6ts")
+region_rect = Rect2(159.727, 0.0831738, 79.3221, 80.3363)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_huuqw")

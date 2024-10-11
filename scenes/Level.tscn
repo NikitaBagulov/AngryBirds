@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://clc8q8cpslwop"]
+
+[ext_resource type="Texture2D" uid="uid://c8xyvkeftmkl3" path="res://assets/gameplay/background_1.jpg" id="1_7kfwc"]
+[ext_resource type="PackedScene" uid="uid://bm5o1obm2qc02" path="res://scenes/birds/bird.tscn" id="2_70wta"]
+[ext_resource type="PackedScene" uid="uid://p0nat6mh7o8q" path="res://scenes/enemies/enemy.tscn" id="3_j88wk"]
+[ext_resource type="PackedScene" uid="uid://41q6otr8a4f0" path="res://scenes/blocks/block.tscn" id="4_1m1nd"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="5_b6it5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cayst"]
+size = Vector2(2561, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_od4n3"]
+size = Vector2(233, 1429)
+
+[node name="Node" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1280, 721)
+texture = ExtResource("1_7kfwc")
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(1279.5, 1343)
+shape = SubResource("RectangleShape2D_cayst")
+debug_color = Color(0.999139, 0, 0.122451, 0.42)
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(2678.5, 715.5)
+shape = SubResource("RectangleShape2D_od4n3")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-119, 716)
+shape = SubResource("RectangleShape2D_od4n3")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(1280, 716)
+limit_left = 50
+limit_top = 50
+limit_right = 2500
+limit_bottom = 1300
+position_smoothing_enabled = true
+editor_draw_limits = true
+script = ExtResource("5_b6it5")
+
+[node name="Birds" type="Node2D" parent="."]
+position = Vector2(379, 1214)
+
+[node name="Bird" parent="Birds" instance=ExtResource("2_70wta")]
+position = Vector2(6, -250)
+
+[node name="Bird2" parent="Birds" instance=ExtResource("2_70wta")]
+
+[node name="Bird3" parent="Birds" instance=ExtResource("2_70wta")]
+position = Vector2(3, -130)
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2(1929, 1214)
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("3_j88wk")]
+
+[node name="Blocks" type="Node2D" parent="."]
+position = Vector2(2204, 1214)
+
+[node name="Block" parent="Blocks" instance=ExtResource("4_1m1nd")]

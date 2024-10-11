@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgalq6ne7f35n"]
+
+[ext_resource type="Script" path="res://scenes/damageable.gd" id="1_fing5"]
+[ext_resource type="Texture2D" uid="uid://cs1f2swekkeu8" path="res://assets/gameplay/birds.png" id="1_vu0yn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r38kd"]
+radius = 32.0156
+
+[node name="Damageable" type="RigidBody2D"]
+contact_monitor = true
+max_contacts_reported = 7
+script = ExtResource("1_fing5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vu0yn")
+region_enabled = true
+region_rect = Rect2(87.7417, 7.86125, 76.0407, 75.1077)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 7)
+shape = SubResource("CircleShape2D_r38kd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://p0nat6mh7o8q"]
+
+[ext_resource type="PackedScene" uid="uid://bgalq6ne7f35n" path="res://scenes/damageable.tscn" id="1_5rhbs"]
+
+[node name="Enemy" instance=ExtResource("1_5rhbs")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(983.432, 12.175, 75.6395, 77.8974)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 4)
