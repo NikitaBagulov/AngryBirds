@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://p0nat6mh7o8q"]
+[gd_scene load_steps=3 format=3 uid="uid://p0nat6mh7o8q"]
 
 [ext_resource type="PackedScene" uid="uid://bgalq6ne7f35n" path="res://scenes/damageable.tscn" id="1_5rhbs"]
+[ext_resource type="Texture2D" uid="uid://cmifjmd4rlb15" path="res://assets/Slimes/LargeSlime_Grey.png" id="2_ieprp"]
 
 [node name="Enemy" instance=ExtResource("1_5rhbs")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(983.432, 12.175, 75.6395, 77.8974)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ieprp")
+flip_h = true
+region_rect = Rect2(13.1982, 59.9128, 275.88, 234.115)
 
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 4)
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-12, -37, -3, -35, 4, -41, 7, -35, 6, -30, 12, -24, 28, 4, 38, 13, 30, 19, 15, 27, -2.45105, 23.7683, -23, 25, -41, 22, -44, 14, -38, 9, -38, -8, -36, -21, -32, -28, -34, -41, -23, -36)
