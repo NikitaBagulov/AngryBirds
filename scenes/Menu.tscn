@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://jt2ekw222go0"]
+
+[ext_resource type="PackedScene" uid="uid://dca1e85qt2h0k" path="res://scenes/parallax_background.tscn" id="1_nrb3a"]
+[ext_resource type="Texture2D" uid="uid://b2x58uc8c1ks7" path="res://assets/GUI/container_background.png" id="2_sxx68"]
+[ext_resource type="Script" path="res://Start.gd" id="3_e4wwc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_nrb3a")]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 192.0
+offset_right = 660.0
+offset_bottom = 301.0
+texture_normal = ExtResource("2_sxx68")
+script = ExtResource("3_e4wwc")

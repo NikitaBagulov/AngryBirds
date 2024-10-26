@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lvuywnbb476p"
-path="res://.godot/imported/MediumSlime_Orange.png-b4a5b45473ec90c5f026585acf6af6a2.ctex"
+uid="uid://dre8dpoknn84a"
+path="res://.godot/imported/3.png-c47bd972f84a75f5b4d9bfb222689b36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Slimes/MediumSlime_Orange.png"
-dest_files=["res://.godot/imported/MediumSlime_Orange.png-b4a5b45473ec90c5f026585acf6af6a2.ctex"]
+source_file="res://assets/1_Forest/Layers/3.png"
+dest_files=["res://.godot/imported/3.png-c47bd972f84a75f5b4d9bfb222689b36.ctex"]
 
 [params]
 

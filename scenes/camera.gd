@@ -1,20 +1,15 @@
 extends Camera2D
 
-
 var drag_cam = false
 var old_mouse_pos
-
 @export var CAMERA_SPEED: int = 2
 @export_range(0.5, 2) var zoom_min = 0.5
 @export_range(2, 20) var zoom_max = 2
-@export var ZOOM_SPEED: int  = 10
+@export var ZOOM_SPEED: int = 10
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var mouse_pos = get_global_mouse_position()
 	
@@ -44,8 +39,6 @@ func _input(event):
 		z -= 0.01 * ZOOM_SPEED
 	if event.is_action("zoom_out"):
 		z += 0.01 * ZOOM_SPEED
-	z = clamp(z, zoom_min, zoom_max)	
+	z = clamp(z, zoom_min, zoom_max)
 	
 	zoom = Vector2(z, z)
-	
-	

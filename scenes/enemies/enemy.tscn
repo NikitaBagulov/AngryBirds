@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://p0nat6mh7o8q"]
 
 [ext_resource type="PackedScene" uid="uid://bgalq6ne7f35n" path="res://scenes/damageable.tscn" id="1_5rhbs"]
-[ext_resource type="Texture2D" uid="uid://cmifjmd4rlb15" path="res://assets/Slimes/LargeSlime_Grey.png" id="2_ieprp"]
+[ext_resource type="Texture2D" uid="uid://cmifjmd4rlb15" path="res://assets/GUI/Slimes/LargeSlime_Grey.png" id="2_ieprp"]
 
 [node name="Enemy" instance=ExtResource("1_5rhbs")]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daao0mth4d7cp"
-path="res://.godot/imported/LargeSlime_Red.png-d5710ee928ac33ce615d3ea04c9f247b.ctex"
+uid="uid://dcrpnc4qkg8pf"
+path="res://.godot/imported/4.png-e8c3ad725e11621765e4ef31aeb621f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Slimes/LargeSlime_Red.png"
-dest_files=["res://.godot/imported/LargeSlime_Red.png-d5710ee928ac33ce615d3ea04c9f247b.ctex"]
+source_file="res://assets/1_Forest/Layers/4.png"
+dest_files=["res://.godot/imported/4.png-e8c3ad725e11621765e4ef31aeb621f8.ctex"]
 
 [params]
 

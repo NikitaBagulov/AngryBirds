@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8rq4hoxadlbh"
-path="res://.godot/imported/SmallSlime_Violet.png-5e28ae81d4c73077334dd748d9f3c52f.ctex"
+uid="uid://daao0mth4d7cp"
+path="res://.godot/imported/LargeSlime_Red.png-2fe370bb652d4a87e3dbc86944c043b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Slimes/SmallSlime_Violet.png"
-dest_files=["res://.godot/imported/SmallSlime_Violet.png-5e28ae81d4c73077334dd748d9f3c52f.ctex"]
+source_file="res://assets/GUI/Slimes/LargeSlime_Red.png"
+dest_files=["res://.godot/imported/LargeSlime_Red.png-2fe370bb652d4a87e3dbc86944c043b5.ctex"]
 
 [params]
 

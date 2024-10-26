@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4s2acuj3pwil"
-path="res://.godot/imported/SmallSlime_Green.png-1341284b3d58c97c548814f3f3d3329f.ctex"
+uid="uid://b8rq4hoxadlbh"
+path="res://.godot/imported/SmallSlime_Violet.png-886139c49a432afd524c90ebd9878b85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Slimes/SmallSlime_Green.png"
-dest_files=["res://.godot/imported/SmallSlime_Green.png-1341284b3d58c97c548814f3f3d3329f.ctex"]
+source_file="res://assets/GUI/Slimes/SmallSlime_Violet.png"
+dest_files=["res://.godot/imported/SmallSlime_Violet.png-886139c49a432afd524c90ebd9878b85.ctex"]
 
 [params]
 

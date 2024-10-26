@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://t825bi00bhu7"]
+
+[ext_resource type="Texture2D" uid="uid://tqspcdmgw3nd" path="res://assets/1_Forest/Layers/0.png" id="1_y6t80"]
+[ext_resource type="Texture2D" uid="uid://2ct77gl8jc8f" path="res://assets/1_Forest/Layers/1.png" id="2_c7s5g"]
+[ext_resource type="Texture2D" uid="uid://bfv7mxg83l0nh" path="res://assets/1_Forest/Layers/2.png" id="3_flbs5"]
+[ext_resource type="Texture2D" uid="uid://dre8dpoknn84a" path="res://assets/1_Forest/Layers/3.png" id="4_151oh"]
+[ext_resource type="Texture2D" uid="uid://dcrpnc4qkg8pf" path="res://assets/1_Forest/Layers/4.png" id="5_jextg"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(585.5, 328.5)
+scale = Vector2(0.622396, 0.636111)
+texture = ExtResource("1_y6t80")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(4.01672, 3.93015)
+texture = ExtResource("2_c7s5g")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(-2.4101, 7.07425)
+texture = ExtResource("3_flbs5")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(0.80336, -2.35806)
+texture = ExtResource("4_151oh")
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(0.803383, 7.07425)
+texture = ExtResource("5_jextg")
