@@ -20,7 +20,7 @@ var slingshot = null
 var impulse = null
 
 # Скорость переноса объекта к точке запуска
-@export_range(1, 10) var TRANSFER_SPEED = 5
+@export_range(1, 10) var TRANSFER_SPEED = 10
 
 
 # Коэффициенты для расчета импульса и других физических параметров
@@ -45,9 +45,11 @@ func _integrate_forces(st) -> void:
 	if Input.is_action_just_released("touch"):
 		if self.state == State.STATE_DRAGGED:
 			# Расчет импульса на основе разницы в позициях
-			self.impulse = diff_pos * IMPULSE_FACTOR
+			#self.impulse = diff_pos * IMPULSE_FACTOR
+			self.impulse = slingshot.get_impulse()
+			print("Bird impulse",self.impulse)
 			# Если импульс положителен, объект отпускается, иначе остается прикрепленным
-			self.state = State.STATE_RELEASED if impulse.x > 0 else State.STATE_ATTACHED
+			self.state = State.STATE_RELEASED if self.impulse.x > 0 else State.STATE_ATTACHED
 	
 	# Получаем текущие значения линейной и угловой скорости объекта
 	var lv = st.get_linear_velocity()
@@ -93,12 +95,12 @@ func _integrate_forces(st) -> void:
 		# Состояние, когда объект отпущен, но не запущен
 		State.STATE_RELEASED:
 			# Когда объект достаточно близко к месту запуска, он переходит в состояние полета
-			if diff_pos.length() < impulse.length():
+			if diff_pos.length() < self.impulse.length():
 				self.state = State.STATE_LAUNCHED
 				slingshot.dettach_bird()
 			else:
 				# Объект продолжает двигаться с заданным импульсом
-				lv = impulse * delta
+				lv = self.impulse * delta
 		
 		# Состояние полета после запуска
 		State.STATE_LAUNCHED:

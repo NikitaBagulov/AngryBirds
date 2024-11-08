@@ -27,3 +27,5 @@ position = Vector2(11, -82)
 
 [node name="ElasticFront" parent="." instance=ExtResource("3_aj841")]
 position = Vector2(-22, -79)
+
+[node name="Trajectory" type="Node2D" parent="."]

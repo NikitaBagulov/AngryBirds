@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://clc8q8cpslwop"]
+[gd_scene load_steps=11 format=3 uid="uid://clc8q8cpslwop"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_33h75"]
 [ext_resource type="PackedScene" uid="uid://bm5o1obm2qc02" path="res://scenes/birds/bird.tscn" id="2_70wta"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/camera.gd" id="5_b6it5"]
 [ext_resource type="PackedScene" uid="uid://t825bi00bhu7" path="res://scenes/background.tscn" id="7_2m43t"]
 [ext_resource type="PackedScene" uid="uid://b7kwldoae7ux7" path="res://scenes/slingshot.tscn" id="7_mk0ti"]
+[ext_resource type="PackedScene" uid="uid://bhxlyw0yoqpb8" path="res://scenes/spot.tscn" id="8_mj7ll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cayst"]
 size = Vector2(2561, 190)
@@ -69,3 +70,4 @@ position = Vector2(2204, 1214)
 
 [node name="Slingshot" parent="." instance=ExtResource("7_mk0ti")]
 position = Vector2(594, 1159)
+SPOT_SCENE = ExtResource("8_mj7ll")

@@ -42,6 +42,11 @@ touch={
 ]
 }
 
+[physics]
+
+common/physics_ticks_per_second=30
+common/physics_interpolation=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=2
