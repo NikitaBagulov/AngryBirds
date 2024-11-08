@@ -9,6 +9,8 @@ input_pickable = true
 can_sleep = false
 script = ExtResource("2_1g86n")
 TRANSFER_SPEED = 5
+max_birds = 3
+spawn_delay = 1.0
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)
@@ -22,3 +24,7 @@ region_rect = Rect2(800.708, 700.52, 108.611, 71.8341)
 
 [node name="CollisionPolygon2D" parent="." index="1"]
 polygon = PackedVector2Array(26, -35, 37, -6, 27, 20, -3, 33, -26, 27, -42, -6, -33, -33, -5, -48)
+
+[node name="AttachPoint" type="Marker2D" parent="." index="2"]
+position = Vector2(-27, 18)
+rotation = -1.57079

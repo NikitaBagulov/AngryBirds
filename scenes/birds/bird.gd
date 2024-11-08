@@ -22,6 +22,7 @@ var impulse = null
 # Скорость переноса объекта к точке запуска
 @export_range(1, 10) var TRANSFER_SPEED = 5
 
+
 # Коэффициенты для расчета импульса и других физических параметров
 const IMPULSE_FACTOR = 0.2
 const ATTACHED_SPEED_FACTOR = 0.3
@@ -61,6 +62,7 @@ func _integrate_forces(st) -> void:
 			if diff_pos.length() < TRANSFER_SPEED:
 				lv = diff_pos * delta
 				self.state = State.STATE_ATTACHED
+				slingshot.attach_bird(self)
 			else:
 				# Перемещаем объект к точке запуска с ограниченной скоростью
 				lv = diff_pos.normalized() * TRANSFER_SPEED * delta
@@ -75,10 +77,10 @@ func _integrate_forces(st) -> void:
 		State.STATE_DRAGGED:
 			# Рассчитываем силу, которую применяет игрок при натягивании рогатки
 			var player_force = get_global_mouse_position() - launch_pos
-			var angle = diff_pos.angle()
+			var angle = diff_pos.angle() 
 			# Угловая скорость объекта синхронизируется с движением игрока
 			av = (angle - rotation) * delta
-
+			
 			# Ограничиваем длину силы в зависимости от угла натяжения
 			if angle < DRAGGED_LIMIT_ANGLE_1 and angle > DRAGGED_LIMIT_ANGLE_2:
 				player_force = player_force.limit_length(DRAGGED_FORCE_LIMIT_1)
@@ -93,6 +95,7 @@ func _integrate_forces(st) -> void:
 			# Когда объект достаточно близко к месту запуска, он переходит в состояние полета
 			if diff_pos.length() < impulse.length():
 				self.state = State.STATE_LAUNCHED
+				slingshot.dettach_bird()
 			else:
 				# Объект продолжает двигаться с заданным импульсом
 				lv = impulse * delta
