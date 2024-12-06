@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm5o1obm2qc02"]
+
+[ext_resource type="PackedScene" uid="uid://bgalq6ne7f35n" path="res://scenes/damageable.tscn" id="1_mf34k"]
+[ext_resource type="Script" path="res://scenes/birds/bird.gd" id="2_1g86n"]
+[ext_resource type="Texture2D" uid="uid://dywjuusy1go26" path="res://assets/spritesheet_double.png" id="3_a3kpo"]
+
+[node name="Bird" instance=ExtResource("1_mf34k")]
+input_pickable = true
+can_sleep = false
+script = ExtResource("2_1g86n")
+TRANSFER_SPEED = null
+health = null
+explosion = null
+destroy_points = null
+survive_points = null
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_a3kpo")
+region_rect = Rect2(640.899, 319.918, 158.389, 159.72)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" index="0"]
+texture = ExtResource("3_a3kpo")
+region_enabled = true
+region_rect = Rect2(800.708, 700.52, 108.611, 71.8341)
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(26, -35, 37, -6, 27, 20, -3, 33, -26, 27, -42, -6, -33, -33, -5, -48)
+
+[node name="AttachPoint" type="Marker2D" parent="." index="2"]
+position = Vector2(-27, 18)
+rotation = -1.57079

@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnk1nrenrf17w"]
+
+[ext_resource type="Script" path="res://scenes/gui.gd" id="1_2vh8c"]
+[ext_resource type="Theme" uid="uid://cb0mlwel8ra36" path="res://scenes/default_theme.tres" id="1_5ajbq"]
+[ext_resource type="Texture2D" uid="uid://b2x58uc8c1ks7" path="res://assets/GUI/container_background.png" id="1_hlyrf"]
+[ext_resource type="Texture2D" uid="uid://csxvsp32d2dn6" path="res://assets/GUI/energy_bar_bg.png" id="2_mf7st"]
+[ext_resource type="Texture2D" uid="uid://bws8tyhhianv7" path="res://assets/GUI/energy_bar_fill.png" id="3_bmuuy"]
+[ext_resource type="Texture2D" uid="uid://c7jo0htjulfg" path="res://assets/GUI/btn_forward.png" id="4_x6y8g"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_2vh8c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 629.0
+offset_right = 1152.0
+offset_bottom = 155.0
+theme = ExtResource("1_5ajbq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_hlyrf")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="HBoxLeft" type="HBoxContainer" parent="MarginContainer/VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_right = 94.0
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/NinePatchRect/HBoxLeft"]
+layout_mode = 2
+text = "Score"
+
+[node name="ScoreProgress" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/NinePatchRect/HBoxLeft"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_under = ExtResource("2_mf7st")
+texture_progress = ExtResource("3_bmuuy")
+
+[node name="HBoxRight" type="HBoxContainer" parent="MarginContainer/VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_right = -15.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="ScoreValue" type="Label" parent="MarginContainer/VBoxContainer/NinePatchRect/HBoxRight"]
+layout_mode = 2
+text = "0"
+
+[node name="ScoreSep" type="Label" parent="MarginContainer/VBoxContainer/NinePatchRect/HBoxRight"]
+layout_mode = 2
+text = "/"
+
+[node name="ScoreMax" type="Label" parent="MarginContainer/VBoxContainer/NinePatchRect/HBoxRight"]
+layout_mode = 2
+text = "10000"
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("4_x6y8g")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

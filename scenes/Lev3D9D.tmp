@@ -80,5 +80,3 @@ position = Vector2(594, 1159)
 SPOT_SCENE = ExtResource("8_mj7ll")
 
 [node name="GUI" parent="." instance=ExtResource("9_uadp0")]
-
-[connection signal="end_game" from="GUI" to="." method="_on_gui_end_game"]

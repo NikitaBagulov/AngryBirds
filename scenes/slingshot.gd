@@ -37,7 +37,6 @@ func get_impulse():
 
 func draw_trajectory_for_impulse(impulse):
 	var gravity = ProjectSettings.get("physics/2d/default_gravity") / 1000
-	print(gravity)
 	for i in range(TRAJECTORY_SPOT_COUNT):
 		var t = i * TRAJECTORY_TIME_STEP
 		var x = impulse.x * t 

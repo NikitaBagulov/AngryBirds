@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvgp30m1bpiyh"]
+
+[ext_resource type="Texture2D" uid="uid://d3o887l3excdb" path="res://assets/gameplay/smokes.png" id="1_tlt86"]
+[ext_resource type="Script" path="res://scenes/explosion.gd" id="2_senmk"]
+
+[sub_resource type="Animation" id="Animation_4fkow"]
+resource_name = "default"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(914.572, 247.873, 42.0593, 41.7088), Rect2(859.302, 877.967, 48.9833, 47.1172), Rect2(500.801, 559.512, 91.6605, 81.8934), Rect2(0.848038, 821.282, 118.161, 112.014), Rect2(0.813766, 586.137, 125.965, 123.141), Rect2(0.533263, 462.513, 126.069, 123.76), Rect2(406.156, 152.38, 128.083, 122.285), Rect2(126.786, 152.675, 143.433, 137.488)]
+}
+
+[sub_resource type="Animation" id="Animation_hn5y3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(-0.657349, 586.25, 129.773, 122.943)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bn2fg"]
+_data = {
+"RESET": SubResource("Animation_hn5y3"),
+"default": SubResource("Animation_4fkow")
+}
+
+[node name="Explosion" type="Sprite2D"]
+texture = ExtResource("1_tlt86")
+region_enabled = true
+region_rect = Rect2(-0.657349, 586.25, 129.773, 122.943)
+script = ExtResource("2_senmk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bn2fg")
+}

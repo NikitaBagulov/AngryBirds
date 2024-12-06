@@ -7,7 +7,8 @@ enum State {
 	STATE_ATTACHED,  # Объект прикреплен к рогатке
 	STATE_DRAGGED,   # Объект тянется игроком
 	STATE_RELEASED,  # Объект выпущен
-	STATE_LAUNCHED   # Объект запущен
+	STATE_LAUNCHED,   # Объект запущен
+	STATE_TOUCHED
 }
 
 # Переменная для отслеживания состояния объекта
@@ -22,6 +23,7 @@ var impulse = null
 # Скорость переноса объекта к точке запуска
 @export_range(1, 10) var TRANSFER_SPEED = 10
 
+signal eliminated
 
 # Коэффициенты для расчета импульса и других физических параметров
 const IMPULSE_FACTOR = 0.2
@@ -33,13 +35,17 @@ const DRAGGED_FORCE_LIMIT_2 = 100
 
 # Функция физической интеграции сил, которая управляет движением объекта
 func _integrate_forces(st) -> void:
-	# Проверяем количество контактов и возвращаем объект в состояние покоя при столкновении
-	if st.get_contact_count() > 0 and state == State.STATE_LAUNCHED:
+	if self.state == State.STATE_TOUCHED and self.processed_velocity.length() < 2:
+		emit_signal("eliminated")
 		self.state = State.STATE_IDLE
-	
-	# Получаем глобальную позицию точки запуска рогатки
-	var launch_pos = slingshot.get_node("LaunchPoint").get_global_position()
-	var diff_pos = launch_pos - get_global_position()  # Вычисляем разницу между текущей позицией объекта и точкой запуска
+
+	if st.get_contact_count() > 0 and state == State.STATE_LAUNCHED:
+		self.state = State.STATE_TOUCHED
+	var launch_pos
+	var diff_pos
+	if slingshot and state in [State.STATE_TRANSFERED, State.STATE_ATTACHED, State.STATE_DRAGGED, State.STATE_RELEASED]:
+		launch_pos = slingshot.get_node("LaunchPoint").get_global_position()
+		diff_pos = launch_pos - get_global_position()  # Вычисляем разницу между текущей позицией объекта и точкой запуска
 
 	# Проверка на отпускание объекта игроком
 	if Input.is_action_just_released("touch"):
