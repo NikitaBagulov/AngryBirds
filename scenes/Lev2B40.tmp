@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://clc8q8cpslwop"]
+[gd_scene load_steps=16 format=3 uid="uid://clc8q8cpslwop"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_33h75"]
 [ext_resource type="PackedScene" uid="uid://bm5o1obm2qc02" path="res://scenes/birds/bird.tscn" id="2_70wta"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bnk1nrenrf17w" path="res://scenes/gui.tscn" id="9_uadp0"]
 [ext_resource type="PackedScene" uid="uid://b61jdr4m45m3c" path="res://scenes/end_level.tscn" id="10_sqoc4"]
 [ext_resource type="PackedScene" uid="uid://d3fmej33xy8q2" path="res://scenes/game_over.tscn" id="11_syxci"]
+[ext_resource type="AudioStream" uid="uid://cxb6oh56pcorw" path="res://assets/music/time_for_adventure.mp3" id="12_og3q5"]
+[ext_resource type="Script" path="res://scenes/background_music.gd" id="13_qdwsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cayst"]
 size = Vector2(2561, 190)
@@ -61,70 +63,25 @@ position = Vector2(379, 1214)
 
 [node name="Bird" parent="Birds" groups=["bird", "damageble"] instance=ExtResource("2_70wta")]
 position = Vector2(44, 4)
-health = 50
-
-[node name="Death" parent="Birds/Bird" index="3"]
-mix_target = 0
-playback_type = 1
+health = 15
 
 [node name="Bird2" parent="Birds" groups=["bird", "damageble"] instance=ExtResource("2_70wta")]
 position = Vector2(-45, 4)
-health = 50
+health = 15
 
 [node name="Bird3" parent="Birds" groups=["bird", "damageble"] instance=ExtResource("2_70wta")]
 position = Vector2(-138, 4)
-health = 50
+health = 15
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2(1929, 1214)
 
 [node name="Enemy" parent="Enemies" groups=["damageble", "enemy"] instance=ExtResource("3_j88wk")]
-position = Vector2(-468, 0)
-
-[node name="Death" parent="Enemies/Enemy" index="2"]
-mix_target = 0
-playback_type = 1
-
-[node name="Enemy2" parent="Enemies" groups=["damageble", "enemy"] instance=ExtResource("3_j88wk")]
-position = Vector2(-373, 0)
-
-[node name="Death" parent="Enemies/Enemy2" index="2"]
-mix_target = 0
-playback_type = 1
-
-[node name="Enemy3" parent="Enemies" groups=["damageble", "enemy"] instance=ExtResource("3_j88wk")]
-position = Vector2(-152, -137)
-
-[node name="Death" parent="Enemies/Enemy3" index="2"]
-mix_target = 0
-playback_type = 1
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2(2204, 1214)
 
 [node name="Block" parent="Blocks" groups=["damageble"] instance=ExtResource("4_1m1nd")]
-position = Vector2(-390, 0)
-health = 100
-
-[node name="Death" parent="Blocks/Block" index="2"]
-mix_target = 0
-playback_type = 1
-
-[node name="Block2" parent="Blocks" groups=["damageble"] instance=ExtResource("4_1m1nd")]
-position = Vector2(-427, -76)
-health = 100
-
-[node name="Death" parent="Blocks/Block2" index="2"]
-mix_target = 0
-playback_type = 1
-
-[node name="Block3" parent="Blocks" groups=["damageble"] instance=ExtResource("4_1m1nd")]
-position = Vector2(-466, 0)
-health = 100
-
-[node name="Death" parent="Blocks/Block3" index="2"]
-mix_target = 0
-playback_type = 1
 
 [node name="Slingshot" parent="." instance=ExtResource("7_mk0ti")]
 position = Vector2(594, 1159)
@@ -134,21 +91,17 @@ SPOT_SCENE = ExtResource("8_mj7ll")
 
 [node name="EndLevel" parent="." instance=ExtResource("10_sqoc4")]
 score_levels = {
-1: 3000,
-2: 5000,
-3: 8000
+1: 1500,
+2: 4000,
+3: 7000
 }
 
 [node name="GameOver" parent="." instance=ExtResource("11_syxci")]
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_og3q5")
+script = ExtResource("13_qdwsp")
+
 [connection signal="end_game" from="GUI" to="." method="_on_gui_end_game"]
 [connection signal="restart_level" from="EndLevel" to="." method="_on_end_level_restart_level"]
 [connection signal="restart_level" from="GameOver" to="." method="_on_game_over_restart_level"]
-
-[editable path="Birds/Bird"]
-[editable path="Enemies/Enemy"]
-[editable path="Enemies/Enemy2"]
-[editable path="Enemies/Enemy3"]
-[editable path="Blocks/Block"]
-[editable path="Blocks/Block2"]
-[editable path="Blocks/Block3"]

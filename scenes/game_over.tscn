@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3fmej33xy8q2"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_jnfjq"]
+[ext_resource type="FontFile" uid="uid://b75adstxpyttk" path="res://assets/GUI/RammettoOne-Regular.ttf" id="2_mgxtr"]
+[ext_resource type="PackedScene" uid="uid://co18mhtnctm6d" path="res://scenes/restart_button.tscn" id="3_8tp8e"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_jnfjq")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = -27.5
+offset_right = 128.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Message" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_mgxtr")
+theme_override_font_sizes/font_size = 32
+text = "Game Over"
+
+[node name="RestartButton" parent="." instance=ExtResource("3_8tp8e")]
+offset_top = -107.0
+offset_bottom = -50.0
+scale = Vector2(1.5, 1.5)
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://jt2ekw222go0"]
+[gd_scene load_steps=6 format=3 uid="uid://jt2ekw222go0"]
 
 [ext_resource type="PackedScene" uid="uid://dca1e85qt2h0k" path="res://scenes/parallax_background.tscn" id="1_nrb3a"]
 [ext_resource type="Texture2D" uid="uid://b2x58uc8c1ks7" path="res://assets/GUI/container_background.png" id="2_sxx68"]
 [ext_resource type="Script" path="res://Start.gd" id="3_e4wwc"]
+[ext_resource type="FontFile" uid="uid://b75adstxpyttk" path="res://assets/GUI/RammettoOne-Regular.ttf" id="4_y7pf3"]
+[ext_resource type="AudioStream" uid="uid://cxb6oh56pcorw" path="res://assets/music/time_for_adventure.mp3" id="5_jf35l"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,10 +17,37 @@ grow_vertical = 2
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_nrb3a")]
 
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 408.0
-offset_top = 192.0
-offset_right = 660.0
-offset_bottom = 301.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -54.5
+offset_right = 126.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("2_sxx68")
 script = ExtResource("3_e4wwc")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_y7pf3")
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jf35l")

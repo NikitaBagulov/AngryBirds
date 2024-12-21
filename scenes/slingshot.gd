@@ -17,11 +17,11 @@ func _process(delta):
 	update_elastic($ElasticBack)
 	update_elastic($ElasticFront)
 	var impulse = get_impulse() 
-	if self.bird and self.bird.state == BirdScript.State.STATE_DRAGGED and impulse.x > 0:
+	if is_instance_valid(self.bird) and self.bird.state == BirdScript.State.STATE_DRAGGED and impulse.x > 0:
 		draw_trajectory_for_impulse(impulse)
 	
 func update_elastic(elastic):
-	var attach_pos = self.bird.get_node("AttachPoint").get_global_position() if self.bird else $LaunchPoint.get_global_position()
+	var attach_pos = self.bird.get_node("AttachPoint").get_global_position() if is_instance_valid(self.bird) else $LaunchPoint.get_global_position()
 	#print(attach_pos)
 	var diff_pos = attach_pos - elastic.get_node("FixPoint").get_global_position()
 	var middle = diff_pos/2
@@ -31,7 +31,7 @@ func update_elastic(elastic):
 	sprite.rotation = middle.angle()
 
 func get_impulse():
-	if ! self.bird:
+	if ! is_instance_valid(self.bird):
 		return null
 	return ($LaunchPoint.global_position - self.bird.global_position) / STRENGTH
 
@@ -53,4 +53,5 @@ func attach_bird(bird):
 	self.bird = bird
 	
 func dettach_bird():
-	self.bird = null
+	if self.bird:
+		self.bird = null

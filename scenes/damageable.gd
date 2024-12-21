@@ -3,7 +3,7 @@ extends RigidBody2D
 @export_range(1, 1000) var health:int = 10
 @export var explosion: PackedScene = preload("res://scenes/explosion.tscn")
 @export var destroy_points: int = 500
-@export var survive_points: int = 2000
+@export var survive_points: int = 1000
 
 var processed_velocity = Vector2()
 var processed_angular_velocity = Vector2()
@@ -43,9 +43,15 @@ func get_damage(damage):
 	if damage > 0:
 		self.health -= damage
 		if self.health <= 0:
+			
+				#death_sound_player.stop()
 			explode()
 			
 func explode(emit_signals = true):
+	var death_sound_player = $"/root/MusicManager/Death"
+	if death_sound_player and death_sound_player.is_node_ready():
+		death_sound_player.play()
+		print("Death")
 	var explosion_scene = explosion.instantiate()
 	explosion_scene.position = position
 	get_parent().add_child(explosion_scene)

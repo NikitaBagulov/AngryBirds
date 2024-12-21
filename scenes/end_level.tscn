@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=3 uid="uid://b61jdr4m45m3c"]
+
+[ext_resource type="Script" path="res://end_level.gd" id="1_tchsm"]
+[ext_resource type="Texture2D" uid="uid://druw4kl3ck0c5" path="res://assets/GUI/slot_start_1.png" id="2_ojtjx"]
+[ext_resource type="Texture2D" uid="uid://c8v7q2tk5652e" path="res://assets/GUI/slot_start_2.png" id="3_ngr61"]
+[ext_resource type="Texture2D" uid="uid://rwkdwxd8w100" path="res://assets/GUI/slot_start_3.png" id="4_0yumf"]
+[ext_resource type="Texture2D" uid="uid://d3sb6pvpdb1lx" path="res://assets/GUI/star_1.png" id="5_gl6b1"]
+[ext_resource type="Texture2D" uid="uid://b6ok6qbha2pwe" path="res://assets/GUI/star_2.png" id="6_v5gds"]
+[ext_resource type="Texture2D" uid="uid://c45abndg03mpa" path="res://assets/GUI/star_3.png" id="7_pifxy"]
+[ext_resource type="FontFile" uid="uid://b75adstxpyttk" path="res://assets/GUI/RammettoOne-Regular.ttf" id="8_sb3ut"]
+[ext_resource type="PackedScene" uid="uid://co18mhtnctm6d" path="res://scenes/restart_button.tscn" id="9_s184t"]
+
+[node name="EndLevel" type="CanvasLayer"]
+script = ExtResource("1_tchsm")
+score_levels = {
+1: 1000,
+2: 2500,
+3: 4000
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.705882)
+
+[node name="SlotStar1" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -69.0
+offset_right = -96.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ojtjx")
+
+[node name="SlotStar2" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -69.0
+offset_right = 78.5
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ngr61")
+
+[node name="SlotStar3" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 94.0
+offset_top = -69.0
+offset_right = 216.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0yumf")
+
+[node name="Star1" type="TextureRect" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -130.0
+offset_right = -86.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_gl6b1")
+
+[node name="Star2" type="TextureRect" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -140.0
+offset_right = 113.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_v5gds")
+
+[node name="Star3" type="TextureRect" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 86.0
+offset_top = -130.0
+offset_right = 274.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_pifxy")
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -233.0
+offset_right = 576.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_sb3ut")
+theme_override_font_sizes/font_size = 36
+text = "20000
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" parent="Background" instance=ExtResource("9_s184t")]
+layout_mode = 1
+offset_left = -27.5
+offset_top = -57.0
+offset_right = 27.5
+offset_bottom = 0.0
+
+[connection signal="pressed" from="Background/RestartButton" to="." method="_on_restart_button_pressed"]

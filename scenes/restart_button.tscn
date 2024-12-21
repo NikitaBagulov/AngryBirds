@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://co18mhtnctm6d"]
+
+[ext_resource type="Texture2D" uid="uid://bnxrunts8cvpp" path="res://assets/GUI/btn_restart_small.png" id="1_7d4hb"]
+
+[node name="RestartButton" type="TextureButton"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -100.0
+offset_right = 26.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("1_7d4hb")

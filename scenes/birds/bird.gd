@@ -13,7 +13,7 @@ enum State {
 
 # Переменная для отслеживания состояния объекта
 var state: State = State.STATE_IDLE
-
+var is_dead = false
 # Ссылка на рогатку (slingshot)
 var slingshot = null
 
@@ -24,6 +24,7 @@ var impulse = null
 @export_range(1, 10) var TRANSFER_SPEED = 10
 
 signal eliminated
+signal launched
 
 # Коэффициенты для расчета импульса и других физических параметров
 const IMPULSE_FACTOR = 0.2
@@ -31,7 +32,7 @@ const ATTACHED_SPEED_FACTOR = 0.3
 const DRAGGED_LIMIT_ANGLE_1 = -1.2
 const DRAGGED_LIMIT_ANGLE_2 = -2.0
 const DRAGGED_FORCE_LIMIT_1 = 10
-const DRAGGED_FORCE_LIMIT_2 = 100
+const DRAGGED_FORCE_LIMIT_2 = 75
 
 # Функция физической интеграции сил, которая управляет движением объекта
 func _integrate_forces(st) -> void:
@@ -104,6 +105,7 @@ func _integrate_forces(st) -> void:
 			if diff_pos.length() < self.impulse.length():
 				self.state = State.STATE_LAUNCHED
 				slingshot.dettach_bird()
+				emit_signal("launched", self)
 			else:
 				# Объект продолжает двигаться с заданным импульсом
 				lv = self.impulse * delta

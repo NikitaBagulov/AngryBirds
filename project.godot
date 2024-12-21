@@ -15,6 +15,15 @@ run/main_scene="res://scenes/Menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/ios/mix_with_others=true
+buses/channel_disable_time=0.0
+
+[autoload]
+
+MusicManager="*res://scenes/music_manager.tscn"
+
 [dotnet]
 
 project/assembly_name="Angry Birds"
